@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_activity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity"
+    app:startDestination="@id/mainFragment">
 
     <!-- TODO -->
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.mainFragment.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" />
 </navigation>
