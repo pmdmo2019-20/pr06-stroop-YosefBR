@@ -41,13 +41,12 @@ class RankingFragment : Fragment(R.layout.ranking_fragment) {
             val game: Game = it.getItem(position)
             var player = sharedViewModel.players.value!!.find { x -> x.id == game.playerID }
 
-
+            sharedViewModel.showPlayerAvatar = player!!.avatar
+            sharedViewModel.showPlayerName = player.name
             sharedViewModel.correct = game.correct
             sharedViewModel.points = game.points
 
             navController.navigate(R.id.statsFragment)
-
-
         }
     }
 
