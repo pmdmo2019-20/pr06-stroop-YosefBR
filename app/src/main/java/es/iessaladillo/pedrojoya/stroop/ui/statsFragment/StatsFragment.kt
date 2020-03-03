@@ -4,6 +4,8 @@ package es.iessaladillo.pedrojoya.stroop.ui.statsFragment
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -39,10 +41,25 @@ class StatsFragment : Fragment(R.layout.stats_fragment) {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.mnuHelp -> {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.help_title))
+                    .setMessage(getString(R.string.dashboard_help_description))
+                    .setPositiveButton(getString(R.string.main_ok)) { _, _ ->
+                        //Se mantiene
+                    }
+                    .show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
     private fun setupViews() {
         setupAppBar()
-        sharedViewModel.actualPlayer?.value?.avatar?.let { logo.setImageResource(it) }
-        lblActualPlayer.text = sharedViewModel.actualPlayer?.value?.name
+        sharedViewModel.showPlayerAvatar.let { logo.setImageResource(it) }
+        lblActualPlayer.text = sharedViewModel.showPlayerName
         lblCorrectAnswers.text = sharedViewModel.correct.toString()
         lblPoints.text = sharedViewModel.points.toString()
     }

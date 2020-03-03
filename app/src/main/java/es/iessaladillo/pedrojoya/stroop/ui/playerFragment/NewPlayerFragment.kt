@@ -3,6 +3,8 @@ package es.iessaladillo.pedrojoya.stroop.ui.playerFragment
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -51,6 +53,22 @@ class NewPlayerFragment : Fragment(R.layout.new_player_fragment) {
         return super.onCreateOptionsMenu(menu, inflater)
 
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.mnuHelp -> {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.help_title))
+                    .setMessage(getString(R.string.dashboard_help_description))
+                    .setPositiveButton(getString(R.string.main_ok)) { _, _ ->
+                        //Se mantiene
+                    }
+                    .show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
 
     private fun setupViews() {
         setupAppBar()

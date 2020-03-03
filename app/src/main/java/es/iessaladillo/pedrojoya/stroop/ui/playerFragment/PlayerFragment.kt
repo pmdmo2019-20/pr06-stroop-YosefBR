@@ -3,7 +3,10 @@ package es.iessaladillo.pedrojoya.stroop.ui.playerFragment
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
@@ -39,7 +42,7 @@ class PlayerFragment : Fragment(R.layout.player_fragment) {
             sharedViewModel.actualPlayer = MutableLiveData(player)
             logo.setImageDrawable(resources.getDrawable(sharedViewModel.actualPlayer!!.value!!.avatar))
             lblActualPlayer.text = sharedViewModel.actualPlayer!!.value!!.name
-
+            lblEdit.isVisible = true
         }
     }
 
@@ -65,6 +68,21 @@ class PlayerFragment : Fragment(R.layout.player_fragment) {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.mnuHelp -> {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.help_title))
+                    .setMessage(getString(R.string.dashboard_help_description))
+                    .setPositiveButton(getString(R.string.main_ok)) { _, _ ->
+                        //Se mantiene
+                    }
+                    .show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
     private fun setupViews() {
         setupAppBar()
         lblEmptyView.setOnClickListener{
@@ -79,6 +97,7 @@ class PlayerFragment : Fragment(R.layout.player_fragment) {
             sharedViewModel.actualPlayer?.value?.avatar?.let { logo.setImageResource(it) }
             lblActualPlayer.text = sharedViewModel.actualPlayer?.value?.name
         }
+
     }
 
     private fun navigateToNewPlayer() {

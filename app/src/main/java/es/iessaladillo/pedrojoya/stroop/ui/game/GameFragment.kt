@@ -127,6 +127,8 @@ class GameFragment : Fragment(R.layout.game_fragment) {
             if (it == 0){
                 viewModel.onGameTimeFinish()
 
+                sharedViewModel.showPlayerAvatar = sharedViewModel.actualPlayer!!.value!!.avatar
+                sharedViewModel.showPlayerName = sharedViewModel.actualPlayer!!.value!!.name
                 sharedViewModel.correct = viewModel.correct.value!!
                 sharedViewModel.words = viewModel.words.value!!
                 sharedViewModel.points = viewModel.points.value!!

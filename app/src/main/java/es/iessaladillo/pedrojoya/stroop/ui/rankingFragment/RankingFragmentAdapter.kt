@@ -26,7 +26,6 @@ class RankingFragmentAdapter : RecyclerView.Adapter<RankingFragmentAdapter.ViewH
         return data[position]
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemView = layoutInflater.inflate(R.layout.rank_item, parent, false)

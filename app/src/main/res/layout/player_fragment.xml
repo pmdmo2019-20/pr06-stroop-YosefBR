@@ -11,18 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <ImageView
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginBottom="16dp"
             android:src="@color/primary"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
-
 
         <ImageView
             android:id="@+id/logo"
@@ -47,7 +46,26 @@
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/logo" />
 
-<!--        El contenido de los jugadores se coloca aqui-->
+        <!--        El contenido de los jugadores se coloca aqui-->
+        <TextView
+            android:id="@+id/lblEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:drawablePadding="@dimen/mainPadding"
+            android:gravity="center"
+            android:text="@string/player_selection_btnEdit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:drawableTint="@color/white"
+            app:drawableTopCompat="@drawable/ic_player_edition_black_24dp"
+            card_view:layout_constraintBottom_toTopOf="@+id/lblActualPlayer"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.823"
+            tools:ignore="MissingConstraints" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

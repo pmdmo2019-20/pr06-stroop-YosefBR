@@ -15,6 +15,8 @@ class SharedViewModel(private val repository: Repository,
     val games: LiveData<List<Game>> = repository.queryAllGames()
     var actualPlayer: MutableLiveData<Player>? = null
 
+    var showPlayerAvatar: Int = 0
+    var showPlayerName: String = ""
     var gameMode: String = ""
     var minutes: Int = 0
     var points: Int = 0
