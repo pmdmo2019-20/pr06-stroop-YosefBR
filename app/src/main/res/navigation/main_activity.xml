@@ -11,5 +11,62 @@
         android:id="@+id/mainFragment"
         android:name="es.iessaladillo.pedrojoya.stroop.ui.mainFragment.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_assistantFragment"
+            app:destination="@id/assistantFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_showSettingsWithToolbar"
+            app:destination="@id/showSettingsWithToolbar" />
+        <action
+            android:id="@+id/action_mainFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.aboutFragment.AboutFragment"
+        android:label="about_fragment"
+        tools:layout="@layout/about_fragment" />
+    <fragment
+        android:id="@+id/assistantFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.assistantFragment.AssistantFragment"
+        android:label="AssistantFragment" />
+    <fragment
+        android:id="@+id/showSettingsWithToolbar"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.settingsFragment.ShowSettingsWithToolbar"
+        android:label="ShowSettingsWithToolbar" />
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.playerFragment.PlayerFragment"
+        android:label="player_fragment"
+        tools:layout="@layout/player_fragment" >
+        <action
+            android:id="@+id/action_playerFragment_to_newPlayerFragment"
+            app:destination="@id/newPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPlayerFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.playerFragment.NewPlayerFragment"
+        android:label="new_player_fragment"
+        tools:layout="@layout/new_player_fragment" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.game.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/game_fragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_statsFragment"
+            app:destination="@id/statsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.statsFragment.StatsFragment"
+        android:label="stats_fragment"
+        tools:layout="@layout/stats_fragment" />
 </navigation>

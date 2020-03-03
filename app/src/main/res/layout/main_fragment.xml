@@ -12,7 +12,7 @@
         android:layout_width="match_parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
@@ -22,20 +22,18 @@
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
-
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/logo"
+            android:layout_width="@dimen/main_avatar_size"
+            android:layout_height="@dimen/main_avatar_size"
             android:src="@drawable/logo"
-            card_view:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            card_view:layout_constraintBottom_toBottomOf="@+id/background"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="@+id/imageView2"
-            card_view:layout_constraintTop_toTopOf="@+id/imageView2"
-            card_view:layout_constraintVertical_bias="0.178" />
+            card_view:layout_constraintStart_toStartOf="@+id/background"
+            card_view:layout_constraintTop_toTopOf="@+id/background"
+            card_view:layout_constraintVertical_bias="0.39" />
 
         <TextView
             android:id="@+id/lblActualPlayer"
@@ -47,17 +45,17 @@
             android:textSize="30dp"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            card_view:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/rankingCard"
+            android:id="@+id/assistantCard"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp"
-            card_view:layout_constraintBottom_toTopOf="@+id/assistantCard"
+            card_view:layout_constraintBottom_toTopOf="@+id/aboutCard"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/playerCard"
             tools:ignore="MissingConstraints">
@@ -99,7 +97,7 @@
             android:layout_marginBottom="16dp"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp"
-            card_view:layout_constraintBottom_toTopOf="@+id/rankingCard"
+            card_view:layout_constraintBottom_toTopOf="@+id/assistantCard"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/playCard"
             tools:ignore="MissingConstraints">
@@ -135,16 +133,17 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/assistantCard"
+            android:id="@+id/aboutCard"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
+            android:clickable="true"
             android:layout_marginBottom="16dp"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/aboutCard"
+            card_view:layout_constraintStart_toEndOf="@+id/playerCard"
             tools:ignore="MissingConstraints">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -177,15 +176,15 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/playerCard"
+            android:id="@+id/rankingCard"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp"
-            card_view:layout_constraintBottom_toTopOf="@+id/aboutCard"
-            card_view:layout_constraintEnd_toStartOf="@+id/rankingCard"
+            card_view:layout_constraintBottom_toTopOf="@+id/playerCard"
+            card_view:layout_constraintEnd_toStartOf="@id/assistantCard"
             card_view:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints">
 
@@ -226,7 +225,7 @@
             android:layout_marginBottom="16dp"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="8dp"
-            card_view:layout_constraintBottom_toTopOf="@+id/playerCard"
+            card_view:layout_constraintBottom_toTopOf="@+id/rankingCard"
             card_view:layout_constraintEnd_toStartOf="@+id/settingsCard"
             card_view:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints">
@@ -262,7 +261,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/aboutCard"
+            android:id="@+id/playerCard"
             android:layout_width="180dp"
             android:layout_height="120dp"
             android:layout_gravity="center"

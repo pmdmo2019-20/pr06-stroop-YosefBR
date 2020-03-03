@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.game.GameFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgBar"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@color/primary"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/lblWordsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/gameNumbers"
+            app:layout_constraintBottom_toTopOf="@+id/lblWords"
+            app:layout_constraintEnd_toStartOf="@+id/lblCorrectNumber"
+            app:layout_constraintStart_toStartOf="@+id/imgBar"
+            app:layout_constraintTop_toTopOf="@+id/imgBar"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lblWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_lblWordsLabel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/gameText"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBar"
+            app:layout_constraintEnd_toEndOf="@+id/lblWordsNumber"
+            app:layout_constraintStart_toStartOf="@+id/lblWordsNumber"
+            app:layout_constraintTop_toBottomOf="@+id/lblWordsNumber"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lblCorrectNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/gameNumbers"
+            app:layout_constraintBottom_toTopOf="@+id/lblCorrect"
+            app:layout_constraintEnd_toStartOf="@+id/lblAttempsOrPointsNumber"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/lblWordsNumber"
+            app:layout_constraintTop_toTopOf="@+id/imgBar"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lblCorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_lblCorrectLabel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/gameText"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBar"
+            app:layout_constraintEnd_toEndOf="@+id/lblCorrectNumber"
+            app:layout_constraintStart_toStartOf="@+id/lblCorrectNumber"
+            app:layout_constraintTop_toBottomOf="@+id/lblCorrectNumber"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lblAttempsOrPointsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/gameNumbers"
+            app:layout_constraintBottom_toTopOf="@id/lblAttempsOrPoints"
+            app:layout_constraintEnd_toEndOf="@+id/imgBar"
+            app:layout_constraintStart_toEndOf="@+id/lblCorrectNumber"
+            app:layout_constraintTop_toTopOf="@id/imgBar"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/lblAttempsOrPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_points"
+            android:textColor="@color/white"
+            android:textSize="@dimen/gameText"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBar"
+            app:layout_constraintEnd_toEndOf="@+id/lblAttempsOrPointsNumber"
+            app:layout_constraintStart_toStartOf="@+id/lblAttempsOrPointsNumber"
+            app:layout_constraintTop_toBottomOf="@+id/lblAttempsOrPointsNumber"
+            tools:ignore="MissingConstraints" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_margin_1x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBar"/>
+
+        <TextView
+            android:id="@+id/lblActualWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMPTY"
+            android:textSize="60dp"
+            app:layout_constraintBottom_toTopOf="@+id/rightAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/wrongAnswer"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_wrong_black_24dp"
+            android:tint="@color/wrongAnswer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rightAnswer"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/rightAnswer"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_right_black_24dp"
+            android:tint="@color/rightAnswer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/wrongAnswer"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

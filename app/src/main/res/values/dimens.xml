@@ -28,5 +28,8 @@
 
     <dimen name="player_selection_item_imgAvatar_size">40dp</dimen>
     <dimen name="toolbar_elevation">8dp</dimen>
+    <dimen name="mainPadding">8dp</dimen>
+    <dimen name="gameNumbers">50dp</dimen>
+    <dimen name="gameText">20dp</dimen>
 
 </resources>

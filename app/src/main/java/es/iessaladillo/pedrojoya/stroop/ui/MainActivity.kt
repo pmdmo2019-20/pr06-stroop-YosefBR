@@ -16,4 +16,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupAppBar() {
         setSupportActionBar(toolbar)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }

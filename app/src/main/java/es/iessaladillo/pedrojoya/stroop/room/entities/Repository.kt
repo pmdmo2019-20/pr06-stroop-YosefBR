@@ -1,0 +1,11 @@
+package es.iessaladillo.pedrojoya.stroop.room.entities
+
+import androidx.lifecycle.LiveData
+
+interface Repository {
+
+    fun queryAllPlayers(): LiveData<List<Player>>
+    fun addPlayer(player: Player)
+    fun updatePlayer(player: Player): Int
+    fun deletePlayer(player: Player): Int
+}
