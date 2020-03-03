@@ -27,6 +27,7 @@ class GameViewModel : ViewModel() {
     var attempts: MutableLiveData<Int> = MutableLiveData(5)
     var words: MutableLiveData<Int> = MutableLiveData(0)
     var points: MutableLiveData<Int> = MutableLiveData(0)
+    var currentGameTime: MutableLiveData<Int> = MutableLiveData(0)
 
     private val text: List<String> = listOf("Red", "Green", "Blue", "Yellow")
     private val colors: List<Int> = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW)
@@ -226,6 +227,7 @@ class GameViewModel : ViewModel() {
 
     fun startGameThread(gameTime: Int, wordTime: Int) {
         millisUntilFinished = gameTime
+        currentGameTime.value = millisUntilFinished
         currentWordMillis = 0
         isGameFinished = false
         val checkTimeMillis: Int = wordTime / 2
@@ -243,6 +245,7 @@ class GameViewModel : ViewModel() {
                             currentWordMillis += checkTimeMillis
                             millisUntilFinished -= checkTimeMillis
                             onGameTimeTick(millisUntilFinished)
+                            currentGameTime.value = millisUntilFinished
                             if (millisUntilFinished <= 0) {
                                 onGameTimeFinish()
                             }
@@ -258,5 +261,6 @@ class GameViewModel : ViewModel() {
         super.onCleared()
         isGameFinished = true
     }
+
 }
 

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools%22%3E"
+    android:id="@+id/clRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="8dp"
+    tools:ignore="MissingConstraints">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgPlayerAvatar"
+            android:layout_width="@android:dimen/notification_large_icon_width"
+            android:layout_height="@android:dimen/notification_large_icon_height"
+            android:layout_marginStart="@dimen/main_margin_2x"
+            android:src="@drawable/avatar_01_mexican"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblRankWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/ranking_item_words"
+            card_view:layout_constraintBottom_toTopOf="@+id/lblRankCorrect"
+            card_view:layout_constraintStart_toEndOf="@id/imgPlayerAvatar"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblRankMinutes" />
+
+        <TextView
+            android:id="@+id/lblRankCorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/game_lblCorrectLabel"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toEndOf="@id/imgPlayerAvatar"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblRankWords" />
+
+        <TextView
+            android:id="@+id/lblRankMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="minutes"
+            card_view:layout_constraintBottom_toTopOf="@+id/lblRankWords"
+            card_view:layout_constraintStart_toEndOf="@id/imgPlayerAvatar"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblRankGameMode" />
+
+
+        <TextView
+            android:id="@+id/lblRankPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/main_margin_2x"
+            android:layout_marginTop="8dp"
+            android:text="nombre"
+            android:textSize="@dimen/main_textSize_2x"
+            card_view:layout_constraintBottom_toTopOf="@+id/lblRankGameMode"
+            card_view:layout_constraintStart_toEndOf="@id/imgPlayerAvatar"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblRankGameMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/prefGameMode_title"
+            card_view:layout_constraintBottom_toTopOf="@+id/lblRankMinutes"
+            card_view:layout_constraintStart_toEndOf="@id/imgPlayerAvatar"
+            card_view:layout_constraintTop_toBottomOf="@+id/lblRankPlayerName" />
+
+        <TextView
+            android:id="@+id/lbrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_result_lblPointsLabel"
+            android:textSize="@dimen/main_textSize_2x"
+            card_view:layout_constraintBottom_toTopOf="@+id/lblRankPoints"
+            card_view:layout_constraintEnd_toEndOf="@+id/lblRankPoints"
+            card_view:layout_constraintStart_toStartOf="@+id/lblRankPoints"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.51" />
+
+        <TextView
+            android:id="@+id/lblRankPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:text="0"
+            android:textColor="@color/accent"
+            android:textSize="@dimen/main_textSize_6x"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/lbrp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

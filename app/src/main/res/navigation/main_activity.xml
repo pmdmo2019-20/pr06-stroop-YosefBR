@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rankingFragment"
+            app:destination="@id/rankingFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -61,12 +64,24 @@
         android:label="game_fragment"
         tools:layout="@layout/game_fragment" >
         <action
-            android:id="@+id/action_gameFragment_to_statsFragment"
-            app:destination="@id/statsFragment" />
+            android:id="@+id/fromStatsToDashboard"
+            app:destination="@id/statsFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/mainFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
         android:name="es.iessaladillo.pedrojoya.stroop.ui.statsFragment.StatsFragment"
         android:label="stats_fragment"
         tools:layout="@layout/stats_fragment" />
+    <fragment
+        android:id="@+id/rankingFragment"
+        android:name="es.iessaladillo.pedrojoya.stroop.ui.rankingFragment.RankingFragment"
+        android:label="ranking_fragment"
+        tools:layout="@layout/ranking_fragment" >
+        <action
+            android:id="@+id/action_rankingFragment_to_statsFragment"
+            app:destination="@id/statsFragment" />
+    </fragment>
 </navigation>

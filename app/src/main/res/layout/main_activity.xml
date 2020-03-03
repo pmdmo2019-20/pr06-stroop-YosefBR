@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
-    ​
 
     <fragment
         android:id="@+id/navHostFragment"
@@ -18,7 +17,7 @@
         tools:context=".ui.MainActivity"
         tools:ignore="FragmentTagUsage"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -28,7 +27,7 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         tools:ignore="MissingConstraints" />
-    ​
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

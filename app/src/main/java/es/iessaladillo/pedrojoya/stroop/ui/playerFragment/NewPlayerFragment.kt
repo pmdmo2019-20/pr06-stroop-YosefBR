@@ -19,7 +19,7 @@ class NewPlayerFragment : Fragment(R.layout.new_player_fragment) {
 
     private val viewModel: NewPlayerFragmentViewModel by viewModels {
         NewPlayerFragmentViewModelFactory(
-            LocalRepository(StroopDatabase.getInstance(requireContext()).playerDao),
+            LocalRepository(StroopDatabase.getInstance(requireContext()).playerDao, StroopDatabase.getInstance(requireContext()).gameDao),
             requireActivity().application
         )
     }

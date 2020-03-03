@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import es.iessaladillo.pedrojoya.stroop.room.entities.Player
 import es.iessaladillo.pedrojoya.stroop.room.entities.Repository
-import kotlin.concurrent.thread
 
 class NewPlayerFragmentViewModel(private val repository: Repository,
                                  private val application: Application) : ViewModel() {

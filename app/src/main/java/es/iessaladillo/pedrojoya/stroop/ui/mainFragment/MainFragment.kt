@@ -7,14 +7,26 @@ import android.view.Menu
 import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import es.iessaladillo.pedrojoya.stroop.R
+import es.iessaladillo.pedrojoya.stroop.room.entities.LocalRepository
+import es.iessaladillo.pedrojoya.stroop.room.entities.StroopDatabase
+import es.iessaladillo.pedrojoya.stroop.ui.SharedViewModel
+import es.iessaladillo.pedrojoya.stroop.ui.SharedViewModelFactory
 import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment(R.layout.main_fragment) {
+
+    private val sharedViewModel: SharedViewModel by activityViewModels {
+        SharedViewModelFactory(
+            LocalRepository(StroopDatabase.getInstance(requireContext()).playerDao, StroopDatabase.getInstance(requireContext()).gameDao),
+            requireActivity().application
+        )
+    }
 
     private val navController: NavController by lazy {
         findNavController(navHostFragment)
@@ -50,9 +62,30 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             navigateToPlayer()
         }
         playCard.setOnClickListener{
-            navigateToGame()
+            if (sharedViewModel.actualPlayer?.value == null) {
+                navigateToPlayer()
+            }
+            else {
+                navigateToGame()
+            }
         }
+        rankingCard.setOnClickListener {
+            navigateToRanking()
+        }
+
+        if (sharedViewModel.actualPlayer?.value == null) {
+            lblActualPlayer.text = getString(R.string.player_selection_no_player_selected)
+        }else {
+            sharedViewModel.actualPlayer?.value?.avatar?.let { logo.setImageResource(it) }
+            lblActualPlayer.text = sharedViewModel.actualPlayer?.value?.name
+        }
+
         setupAppBar()
+
+    }
+
+    private fun navigateToRanking() {
+        navController.navigate(R.id.rankingFragment)
     }
 
     private fun navigateToAssistant() {
