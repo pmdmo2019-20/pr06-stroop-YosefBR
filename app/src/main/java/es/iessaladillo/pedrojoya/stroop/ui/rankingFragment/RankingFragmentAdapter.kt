@@ -69,13 +69,16 @@ class RankingFragmentAdapter : RecyclerView.Adapter<RankingFragmentAdapter.ViewH
             game.run {
                 val player = dataPlayer.find { pl -> pl.id == game.playerID }
 
+                //No deja hacer getString
+                //getString(R.string.correct_string, correct.toString())
+
                 imgPlayerAvatar.setImageResource(player!!.avatar)
                 lblRankPlayerName.text = player!!.name
-                lblRankCorrect.text = game.correct.toString()
-                lblRankMinutes.text = game.minutes.toString()
-                lblRankGameMode.text = game.gameMode
+                lblRankCorrect.text = "Correct: $correct"
+                lblRankMinutes.text = "Minutes: $minutes"
+                lblRankGameMode.text = "Game mode: $gameMode"
                 lblRankPoints.text = game.points.toString()
-                lblRankWords.text = game.words.toString()
+                lblRankWords.text = "Words: $words"
             }
         }
     }

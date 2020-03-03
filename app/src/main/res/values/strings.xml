@@ -93,6 +93,10 @@
     <string name="player_deletion_yes">Yes</string>
     <string name="player_deletion_no">No</string>
 
+    <string name="gameMode_string">Game mode: %s</string>
+    <string name="minutes_string">Minutes: %s</string>
+    <string name="words_string">Words: %s</string>
+    <string name="correct_string">Correct: %s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

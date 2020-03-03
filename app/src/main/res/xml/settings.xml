@@ -28,7 +28,7 @@
 
         <androidx.preference.ListPreference
             android:id="@+id/prefWordTime"
-            android:defaultValue="false"
+            android:defaultValue="@string/prefWordTime_defaultValue"
             android:dialogTitle="@string/prefGameTime_title"
             android:entries="@array/prefWordTime_entries"
             android:entryValues="@array/prefWordTime_entryValues"

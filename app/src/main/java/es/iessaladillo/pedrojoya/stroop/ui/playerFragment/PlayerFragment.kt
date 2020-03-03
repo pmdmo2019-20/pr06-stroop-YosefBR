@@ -19,7 +19,10 @@ import es.iessaladillo.pedrojoya.stroop.room.entities.StroopDatabase
 import es.iessaladillo.pedrojoya.stroop.ui.SharedViewModel
 import es.iessaladillo.pedrojoya.stroop.ui.SharedViewModelFactory
 import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.player_fragment.*
+import kotlinx.android.synthetic.main.player_fragment.lblActualPlayer
+import kotlinx.android.synthetic.main.player_fragment.logo
 
 class PlayerFragment : Fragment(R.layout.player_fragment) {
 
@@ -33,9 +36,10 @@ class PlayerFragment : Fragment(R.layout.player_fragment) {
     private val listAdapter: PlayerFragmentAdapter = PlayerFragmentAdapter().also {
         it.setOnItemClickListener {position ->
             val player: Player = it.getItem(position)
-            logo.setImageDrawable(resources.getDrawable(player.avatar))
-            lblActualPlayer.text = player.name
             sharedViewModel.actualPlayer = MutableLiveData(player)
+            logo.setImageDrawable(resources.getDrawable(sharedViewModel.actualPlayer!!.value!!.avatar))
+            lblActualPlayer.text = sharedViewModel.actualPlayer!!.value!!.name
+
         }
     }
 
@@ -68,6 +72,12 @@ class PlayerFragment : Fragment(R.layout.player_fragment) {
         }
         floating_action_button.setOnClickListener {
             navigateToNewPlayer()
+        }
+        if (sharedViewModel.actualPlayer?.value == null) {
+            lblActualPlayer.text = getString(R.string.player_selection_no_player_selected)
+        }else {
+            sharedViewModel.actualPlayer?.value?.avatar?.let { logo.setImageResource(it) }
+            lblActualPlayer.text = sharedViewModel.actualPlayer?.value?.name
         }
     }
 
